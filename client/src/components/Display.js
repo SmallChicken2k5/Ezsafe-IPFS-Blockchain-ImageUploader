@@ -20,14 +20,14 @@ const Display = ({ contract, account }) => {
     if (!isEmpty) {
       const str = dataArray.toString();
       const str_array = str.split(",");
-      console.log(str);
-      console.log(str_array);
+      // console.log(str);
+      // console.log(str_array);
       const images = str_array.map((item, i) => {
         return (
-          <a href={item} key={i} target="_blank">
+          <a href={item} key={i} target="_blank" rel="noreferrer">
             <img
               key={i}
-              src={`https://gateway.pinata.cloud/ipfs/${item.substring(6)}`}
+              src={item}
               alt="new"
               className="image-list"
             ></img>
@@ -44,11 +44,11 @@ const Display = ({ contract, account }) => {
       <div className="image-list">{data}</div>
       <input
         type="text"
-        placeholder="Enter Address"
+        placeholder="Nhập Địa Chỉ Ví Cần Hiển Thị (Nếu bỏ trống sẽ hiển thị của bạn)"
         className="address"
       ></input>
       <button className="center button" onClick={getdata}>
-        Get Data
+        Hiển Thị Ảnh 
       </button>
     </>
   );

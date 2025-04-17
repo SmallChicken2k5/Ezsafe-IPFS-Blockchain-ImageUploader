@@ -7,43 +7,59 @@ input[type="file"] {
 }
 
 .choose {
-  background-color: initial;
-  background-image: linear-gradient(-180deg, #5aff15, #00b712);
-  border-radius: 6px;
+  background-color: #0d1117;
+  background-image: linear-gradient(135deg, #00ffff, #0077ff);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
   color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 6px;
-  margin-right: 10px;
-  padding-bottom: 10px;
+  padding: 8px 12px;
+  margin-right: 12px;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #0077ff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+label.choose {
+  display: inline-block; /* Đảm bảo thẻ có kích thước */
+  cursor: pointer; /* Thêm con trỏ để làm rõ rằng nó có thể tương tác */
 }
 .choose:hover {
-  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+  box-shadow: 0 0 15px #00ffff, 0 0 25px #0077ff;
+  transform: scale(1.1) !important;
 }
 .textArea {
   color: white;
 }
 
 .upload {
-  border: 1px solid #13aa52;
-  background-color: #13aa52;
+  border: 2px solid #00ffff;
+  background-color: #0d1117;
+  background-image: linear-gradient(135deg, #0077ff, #00ffff);
   color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
   margin-left: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #0077ff;
+  transition: all 0.3s ease-in-out;
 }
 
 .upload:hover {
-  border: 1px solid #13aa52;
-  background-color: #a5efc1;
-  color: #ffffff;
-  padding: 5px 10px;
+  box-shadow: 0 0 15px #00ffff, 0 0 25px #0077ff;
+  transform: scale(1.1);
 }
 
 .upload:disabled,
 .upload[disabled] {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+  border: 2px solid #555555;
+  background-color: #555555;
+  color: #aaaaaa;
+  text-shadow: none;
+  cursor: not-allowed;
+  background-image: none;
 }
 
 div {

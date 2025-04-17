@@ -3,7 +3,7 @@ import axios from "axios";
 import "./FileUpload.css";
 const FileUpload = ({ contract, account, provider }) => {
   const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("No image selected");
+  const [fileName, setFileName] = useState("Chưa có ảnh nào được chọn");
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (file) {
@@ -23,15 +23,16 @@ const FileUpload = ({ contract, account, provider }) => {
         });
         const ImgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
         contract.add(account,ImgHash);
-        alert("Successfully Image Uploaded");
-        setFileName("No image selected");
+        alert("Tải Ảnh Lên Thành Công");
+        setFileName("Chưa có ảnh nào được chọn");
         setFile(null);
       } catch (e) {
-        alert("Unable to upload image to Pinata");
+      //  console.error("Error uploading image to Pinata:", e);
+        alert("Không thể tải ảnh lên Pinata. Vui lòng thử lại sau.");
       }
     }
-    alert("Successfully Image Uploaded");
-    setFileName("No image selected");
+    // alert("Tải Ảnh Lên Thành Công");
+    setFileName("Chưa có ảnh nào được chọn");
     setFile(null);
   };
   const retrieveFile = (e) => {
@@ -49,7 +50,7 @@ const FileUpload = ({ contract, account, provider }) => {
     <div className="top">
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="file-upload" className="choose">
-          Choose Image
+          Chọn Ảnh
         </label>
         <input
           disabled={!account}
@@ -58,9 +59,9 @@ const FileUpload = ({ contract, account, provider }) => {
           name="data"
           onChange={retrieveFile}
         />
-        <span className="textArea">Image: {fileName}</span>
+        <span className="textArea">Ảnh: {fileName}</span>
         <button type="submit" className="upload" disabled={!file}>
-          Upload File
+          Tải Ảnh Lên
         </button>
       </form>
     </div>

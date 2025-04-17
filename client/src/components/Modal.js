@@ -26,17 +26,17 @@ const Modal = ({ setModalOpen, contract }) => {
     <>
       <div className="modalBackground">
         <div className="modalContainer">
-          <div className="title">Share with</div>
+          <div className="title">Chia Sẻ Quyền Truy Cập</div>
           <div className="body">
             <input
               type="text"
               className="address"
-              placeholder="Enter Address"
+              placeholder="Nhập địa chỉ ví cần chia sẻ"
             ></input>
           </div>
-          <form id="myForm">
+          <form id="accessListForm">
             <select id="selectNumber">
-              <option className="address">People With Access</option>
+              <option className="address">Danh sách người được chia sẻ</option>
             </select>
           </form>
           <div className="footer">
@@ -46,9 +46,9 @@ const Modal = ({ setModalOpen, contract }) => {
               }}
               id="cancelBtn"
             >
-              Cancel
+              Đóng
             </button>
-            <button onClick={() => sharing()}>Share</button>
+            <button onClick={() => sharing()}>Chia Sẻ</button>
           </div>
         </div>
       </div>

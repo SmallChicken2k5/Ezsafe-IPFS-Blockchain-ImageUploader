@@ -48,7 +48,7 @@ function App() {
     <>
       {!modalOpen && (
         <button className="share" onClick={() => setModalOpen(true)}>
-          Share
+          Chia Sẻ Quyền Truy Cập
         </button>
       )}
       {modalOpen && (
@@ -56,11 +56,11 @@ function App() {
       )}
 
       <div className="App">
-        <h1 style={{ color: "white" }}>Ezsafe</h1>
-        {/* <div class="bg"></div>
+        <h1 style={{ color: "white" }}>EzSafe</h1>
+        {/* <div class="bg"></div</div>>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div> */}
-        <div class="container">
+        <div className="container">
           <div className="bubbles">
             <span style={{ "--i": 37 }}></span>
             <span style={{ "--i": 12 }}></span>
@@ -121,7 +121,7 @@ function App() {
         </div>
 
         <p style={{ color: "white" }}>
-          Account : {account ? account : "Not connected"}
+          Tài Khoản : {account ? account : "Không kết nối"}
         </p>
         <FileUpload
           account={account}
