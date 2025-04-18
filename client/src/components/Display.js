@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./Display.css";
+
 const Display = ({ contract, account }) => {
   const [data, setData] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null); // State để lưu hình ảnh được chọn
+
   const getdata = async () => {
     let dataArray;
     const Otheraddress = document.querySelector(".address").value;
@@ -20,18 +23,17 @@ const Display = ({ contract, account }) => {
     if (!isEmpty) {
       const str = dataArray.toString();
       const str_array = str.split(",");
-      // console.log(str);
-      // console.log(str_array);
       const images = str_array.map((item, i) => {
         return (
-          <a href={item} key={i} target="_blank" rel="noreferrer">
+          <div href={item} key={i} target="_blank" rel="noreferrer">
             <img
               key={i}
               src={item}
               alt="new"
               className="image-list"
+              onClick={() => setSelectedImage(item)} // Khi bấm vào hình, lưu URL vào state
             ></img>
-          </a>
+          </div>
         );
       });
       setData(images);
@@ -39,6 +41,7 @@ const Display = ({ contract, account }) => {
       alert("No image to display");
     }
   };
+
   return (
     <>
       <div className="image-list">{data}</div>
@@ -48,9 +51,17 @@ const Display = ({ contract, account }) => {
         className="address"
       ></input>
       <button className="center button" onClick={getdata}>
-        Hiển Thị Ảnh 
+        Hiển Thị Ảnh
       </button>
+
+      {/* Modal hiển thị hình ảnh full màn hình */}
+      {selectedImage && (
+        <div className="modal" onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt="Full View" className="modal-image" />
+        </div>
+      )}
     </>
   );
 };
+
 export default Display;
