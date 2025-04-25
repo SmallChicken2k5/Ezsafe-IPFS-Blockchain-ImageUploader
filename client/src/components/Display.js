@@ -59,12 +59,17 @@ const Display = ({ contract, account }) => {
               className="image-list"
               onClick={() => setSelectedImage(item)}
             />
-            <button
-              className="delete-button"
-              onClick={() => deleteImage(item)}
-            >
-              Xóa
-            </button>
+            {(!selectedAddress || selectedAddress === account) && (
+              <button
+                className="delete-button"
+                onClick={(e) => {
+                  e.stopPropagation(); // Ngăn không cho click ảnh khi click nút
+                  deleteImage(item);
+                }}
+              >
+                Xóa
+              </button>
+            )}
           </div>
         );
       });

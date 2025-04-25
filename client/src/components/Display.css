@@ -85,10 +85,18 @@
   border: 1px solid #ccc;
   text-align: center;
 }
+
 .image-container {
   position: relative;
-  z-index: 1000; /* Thấp hơn modal */
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.image-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5); /* Hiệu ứng khi hover */
+}
+
 
 .delete-button {
   position: absolute;
@@ -107,5 +115,6 @@
 .delete-button:hover {
   background-color: darkred;
   transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Hiệu ứng tương tự hình ảnh */
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
 }
+
