@@ -76,3 +76,45 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.95); /* Slightly darker on hover */
 }
+.address-dropdown {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  /* width: 330px; */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5); /* Hiệu ứng khi hover */
+}
+
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+}
+
