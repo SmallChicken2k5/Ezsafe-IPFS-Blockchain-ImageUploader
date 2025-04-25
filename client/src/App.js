@@ -48,7 +48,7 @@ function App() {
     <>
       {!modalOpen && (
         <button className="share" onClick={() => setModalOpen(true)}>
-          Chia Sẻ Quyền Truy Cập
+          Quyền Truy Cập
         </button>
       )}
       {modalOpen && (
@@ -121,7 +121,7 @@ function App() {
         </div>
 
         <p style={{ color: "white" }}>
-          Tài Khoản : {account ? account : "Không kết nối"}
+          Địa chỉ ví của bạn : {account ? account : "Không kết nối"}
         </p>
         <FileUpload
           account={account}

@@ -1,11 +1,19 @@
 import { useEffect } from "react";
 import "./Modal.css";
+
 const Modal = ({ setModalOpen, contract }) => {
   const sharing = async () => {
     const address = document.querySelector(".address").value;
     await contract.allow(address);
     setModalOpen(false);
   };
+
+  const disallow = async () => {
+    const address = document.querySelector(".address").value;
+    await contract.disallow(address); // Gọi hàm disallow từ smart contract
+    alert(`Đã hủy chia sẻ với địa chỉ: ${address}`);
+  };
+
   useEffect(() => {
     const accessList = async () => {
       const addressList = await contract.shareAccess();
@@ -22,11 +30,12 @@ const Modal = ({ setModalOpen, contract }) => {
     };
     contract && accessList();
   }, [contract]);
+
   return (
     <>
       <div className="modalBackground">
         <div className="modalContainer">
-          <div className="title">Chia Sẻ Quyền Truy Cập</div>
+          <div className="title">Quyền Truy Cập</div>
           <div className="body">
             <input
               type="text"
@@ -35,8 +44,16 @@ const Modal = ({ setModalOpen, contract }) => {
             ></input>
           </div>
           <form id="accessListForm">
-            <select id="selectNumber">
-              <option className="address">Danh sách người được chia sẻ</option>
+            <select
+              id="selectNumber"
+              onChange={(e) => {
+                const value = e.target.value.split(",")[0]; // Lấy phần trước dấu phẩy
+                document.querySelector(".address").value = value;
+              }}
+            >
+              <option className="address" value="">
+                Danh Sách Quyền Truy Cập
+              </option>
             </select>
           </form>
           <div className="footer">
@@ -48,11 +65,13 @@ const Modal = ({ setModalOpen, contract }) => {
             >
               Đóng
             </button>
-            <button onClick={() => sharing()}>Chia Sẻ</button>
+            <button id="shareBtn" onClick={() => sharing()}>Chia Sẻ</button>
+            <button id="disallowBtn" onClick={() => disallow()}>Hủy Chia Sẻ</button>
           </div>
         </div>
       </div>
     </>
   );
 };
+
 export default Modal;

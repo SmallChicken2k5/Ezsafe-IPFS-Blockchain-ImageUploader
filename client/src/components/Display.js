@@ -6,6 +6,7 @@ const Display = ({ contract, account }) => {
   const [selectedImage, setSelectedImage] = useState(null); // State để lưu hình ảnh được chọn
 
   const getdata = async () => {
+    setData(""); // Reset image-list trước khi tải dữ liệu mới
     let dataArray;
     const Otheraddress = document.querySelector(".address").value;
     try {
@@ -31,14 +32,14 @@ const Display = ({ contract, account }) => {
               src={item}
               alt="new"
               className="image-list"
-              onClick={() => setSelectedImage(item)} // Khi bấm vào hình, lưu URL vào state
+              onClick={() => setSelectedImage(item)} 
             ></img>
           </div>
         );
       });
       setData(images);
     } else {
-      alert("No image to display");
+      alert("Không có hình ảnh để hiển thị");
     }
   };
 
