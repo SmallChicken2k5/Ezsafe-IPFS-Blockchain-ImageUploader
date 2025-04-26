@@ -90,6 +90,72 @@ let contractAddress = "Your Contract Address Here";
 
 ---
 
+## 5.3. Thiết lập MetaMask
+
+1. **Cài đặt MetaMask**  
+   - Tải MetaMask từ [trang chính thức](https://metamask.io/download.html) và cài đặt extension trên trình duyệt của bạn.
+
+2. **Kết nối MetaMask với mạng local**  
+   - Mở MetaMask và nhấn vào biểu tượng tài khoản ở góc phải trên cùng.  
+   - Chọn **Settings** > **Networks** > **Add Network**.  
+   - Điền thông tin sau để thêm mạng local:
+     - **Network Name**: Localhost 8545  
+     - **New RPC URL**: http://127.0.0.1:8545  
+     - **Chain ID**: 1337  
+     - **Currency Symbol**: ETH  
+   - Nhấn **Save** để lưu mạng.
+
+3. **Chọn tài khoản thử nghiệm**  
+   - Sau khi kết nối với mạng `Localhost 8545`, bạn sẽ thấy danh sách các tài khoản thử nghiệm được cung cấp bởi Hardhat.  
+   - Chọn một tài khoản để sử dụng trong ứng dụng.
+
+4. **Cấp quyền cho ứng dụng**  
+   - Khi mở ứng dụng tại `http://localhost:3000`, MetaMask sẽ yêu cầu cấp quyền kết nối.  
+   - Nhấn **Connect** để kết nối ví của bạn với ứng dụng.
+
+---
+### 5.4. Chia sẻ ứng dụng cho các máy khác trong cùng mạng LAN
+---
+
+Nếu bạn muốn các máy khác trong cùng mạng LAN có thể truy cập ứng dụng, bạn cần thay thế `localhost` bằng địa chỉ IP của máy bạn. Thực hiện các bước sau:
+
+1. **Lấy địa chỉ IP của máy bạn**  
+   - Mở Command Prompt (Windows) hoặc Terminal (Mac/Linux).  
+   - Chạy lệnh sau để lấy địa chỉ IP:  
+     ```bash
+     ipconfig
+     ```
+   - Tìm dòng `IPv4 Address` (Windows) hoặc `inet` (Mac/Linux). Ví dụ: `192.168.1.100`.
+
+2. **Khởi chạy blockchain local với địa chỉ IP**  
+   - Mở một terminal và chạy lệnh sau để khởi chạy Hardhat node:  
+     ```bash
+     npx hardhat node --hostname 192.168.1.100
+     ```
+   - Thay `192.168.1.100` bằng địa chỉ IP của bạn.  
+   - Hardhat sẽ khởi chạy blockchain local và cho phép các máy khác trong cùng mạng LAN truy cập.
+
+3. **Chạy ứng dụng React với địa chỉ IP**  
+   - Mở một terminal khác và chạy lệnh sau để khởi chạy ứng dụng React:  
+     ```bash
+     npm start --host 192.168.1.100
+     ```
+   - Thay `192.168.1.100` bằng địa chỉ IP của bạn.
+
+4. **Kết nối MetaMask với địa chỉ IP**  
+   - Trong MetaMask, thay đổi **New RPC URL** từ `http://localhost:8545` thành `http://192.168.1.100:8545`.  
+   - Lưu mạng và kết nối lại.
+
+5. **Truy cập từ máy khác**  
+   - Các máy khác trong cùng mạng LAN có thể truy cập ứng dụng bằng cách mở trình duyệt và nhập địa chỉ:  
+     ```
+     http://192.168.1.100:3000
+     ```
+
+> **Lưu ý**: Đảm bảo rằng tường lửa hoặc các phần mềm bảo mật trên máy bạn không chặn các kết nối từ mạng LAN.
+
+---
+
 ## 6. Chạy ứng dụng React
 
 ```bash
