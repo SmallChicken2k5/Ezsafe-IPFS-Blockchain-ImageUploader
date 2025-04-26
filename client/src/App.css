@@ -247,3 +247,78 @@ p {
   box-shadow: 0 8px 20px rgba(255, 0, 127, 0.9), 0 8px 30px rgba(127, 0, 255, 0.7);
   transform: scale(1.1);
 }
+
+.guide-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff007f, #7f00ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.75), 0 4px 20px rgba(127, 0, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.guide-button:hover {
+  box-shadow: 0 8px 20px rgba(255, 0, 127, 0.9), 0 8px 30px rgba(127, 0, 255, 0.7);
+  transform: scale(1.1);
+}
+
+.guide-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.guide-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+.guide-content h2 {
+  margin-bottom: 20px;
+}
+
+.guide-content p {
+  margin-bottom: 10px;
+}
+
+.guide-content button {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.guide-content button:hover {
+  background-color: #0056cc;
+}
+.guide-content ul {
+  text-align: left; /* Căn trái nội dung danh sách */
+  margin-left: 55px; /* Tùy chỉnh khoảng cách lề nếu cần */
+}
+
+.guide-content li {
+  list-style-position: inside; /* Đảm bảo dấu chấm nằm gần nội dung */
+}
