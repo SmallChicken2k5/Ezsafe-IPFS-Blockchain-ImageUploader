@@ -4,6 +4,13 @@
 
 ---
 
+## Giao diện ứng dụng
+
+![Giao diện EzSafe Website](client/image/introduce.png)  
+*Hình ảnh minh họa giao diện chính của ứng dụng EzSafe.*
+
+---
+
 ## 1. Cài đặt môi trường cần thiết
 
 - **Git** (để clone code)  
