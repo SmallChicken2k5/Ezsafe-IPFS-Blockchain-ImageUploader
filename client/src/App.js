@@ -143,11 +143,11 @@ function App() {
             <p>
               5. Danh sách địa chỉ ví sủ dụng thử nghiệm{" "}
               <a
-                href={`https://etherscan.io/address/${account}`}
+                href={`https://github.com/SmallChicken2k5/Ezsafe-IPFS-Blockchain-ImageUploader/blob/public/walletaddress.md`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Etherscan
+                walletaddress.md
               </a>.
             </p>
             <button onClick={closeGuide}>Đóng</button>
