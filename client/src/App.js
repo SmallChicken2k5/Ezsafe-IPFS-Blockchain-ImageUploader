@@ -117,10 +117,14 @@ function App() {
                 đây
               </a>.
             </p>
-            <p>2. Kết nối MetaMask với mạng local:</p>
+            <p>2. Kết nối MetaMask với mạng local hoặc host:</p>
             <ul>
-              <li>Network Name: Localhost 8545</li>
-              <li>New RPC URL: http://127.0.0.1:8545</li>
+              <li>Network Name: Localhost 8545 hoặc Custom Host</li>
+              <li>New RPC URL: http://127.0.0.1:8545 hoặc {" "}
+                <strong>
+                  https://legendary-engine-j4xq79vp5x93wg9-8545.app.github.dev/
+                </strong>
+              </li>
               <li>Chain ID: 1337</li>
               <li>Currency Symbol: ETH</li>
             </ul>
@@ -134,6 +138,16 @@ function App() {
                 rel="noopener noreferrer"
               >
                 README.md
+              </a>.
+            </p>
+            <p>
+              5. Danh sách địa chỉ ví sủ dụng thử nghiệm{" "}
+              <a
+                href={`https://etherscan.io/address/${account}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Etherscan
               </a>.
             </p>
             <button onClick={closeGuide}>Đóng</button>
