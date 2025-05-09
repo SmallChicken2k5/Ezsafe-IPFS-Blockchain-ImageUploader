@@ -319,6 +319,3 @@ p {
   margin-left: 55px; /* Tùy chỉnh khoảng cách lề nếu cần */
 }
 
-.guide-content li {
-  list-style-position: inside; /* Đảm bảo dấu chấm nằm gần nội dung */
-}

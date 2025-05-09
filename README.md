@@ -107,7 +107,7 @@ let contractAddress = "Your Contract Address Here";
    - Chọn **Settings** > **Networks** > **Add Network**.  
    - Điền thông tin sau để thêm mạng local:
      - **Network Name**: Localhost 8545  
-     - **New RPC URL**: http://127.0.0.1:8545  
+     - **New RPC URL**: http://127.0.0.1:8545 (hoặc các host mà bạn đã public) 
      - **Chain ID**: 1337  
      - **Currency Symbol**: ETH  
    - Nhấn **Save** để lưu mạng.

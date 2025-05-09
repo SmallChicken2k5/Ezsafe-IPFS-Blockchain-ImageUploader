@@ -42,11 +42,11 @@ const FileUpload = ({ contract, account, provider }) => {
     }
   };
 
-  const retrieveFiles = (e) => {
-    const selectedFiles = Array.from(e.target.files);
-    setFiles(selectedFiles);
-    setFileNames(selectedFiles.map((file) => file.name).join(", "));
-  };
+  // const retrieveFiles = (e) => {
+  //   const selectedFiles = Array.from(e.target.files);
+  //   setFiles(selectedFiles);
+  //   setFileNames(selectedFiles.map((file) => file.name).join(", "));
+  // };
 
   const resetFileInput = (e) => {
     e.target.value = null; // Đặt lại giá trị của input để đảm bảo sự kiện onChange luôn được kích hoạt
@@ -63,9 +63,22 @@ const FileUpload = ({ contract, account, provider }) => {
           type="file"
           id="file-upload"
           name="data"
-          multiple // Cho phép chọn nhiều file
-          onChange={retrieveFiles}
-          onClick={resetFileInput} // Đặt lại input khi người dùng bấm vào
+          multiple
+          accept="image/*"
+          onChange={(e) => {
+            const selectedFiles = Array.from(e.target.files);
+            const validFiles = selectedFiles.filter((file) =>
+              file.type.startsWith("image/")
+            );
+
+            if (validFiles.length !== selectedFiles.length) {
+              alert("Chỉ được phép tải lên file ảnh.");
+            }
+
+            setFiles(validFiles);
+            setFileNames(validFiles.map((file) => file.name).join(", "));
+          }}
+          onClick={resetFileInput}
         />
         <span className="textArea">Ảnh: {fileNames}</span>
         <button type="submit" className="upload" disabled={files.length === 0}>
