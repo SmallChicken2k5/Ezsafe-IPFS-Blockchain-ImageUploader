@@ -50,7 +50,9 @@ npx hardhat compile  # biên dịch Solidity contract
 2. **Terminal B** (ở thư mục gốc dự án):
 
     ```bash
+    
     npx hardhat run scripts/deploy.js --network localhost
+    
     ```
 
     Khi deploy xong, bạn sẽ thấy log:

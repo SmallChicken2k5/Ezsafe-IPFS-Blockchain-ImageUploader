@@ -38,19 +38,29 @@ function App() {
         window.ethereum.on("accountsChanged", () => {
           window.location.reload();
         });
-        await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        setAccount(address);
-        let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
-        const contract = new ethers.Contract(
-          contractAddress,
-          Upload.abi,
-          signer
-        );
-        setContract(contract);
-        setProvider(provider);
+        try {
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          const address = await signer.getAddress();
+          setAccount(address);
+          let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+
+          const contract = new ethers.Contract(
+            contractAddress,
+            Upload.abi,
+            signer
+          );
+          setContract(contract);
+          setProvider(provider);
+        } catch (err) {
+          if (err.code === 4001) {
+            // User rejected request
+            alert("Bạn cần cấp quyền kết nối MetaMask để sử dụng ứng dụng.");
+          } else {
+            console.error(err);
+          }
+        }
       } else {
         console.error("Metamask is not installed");
       }
