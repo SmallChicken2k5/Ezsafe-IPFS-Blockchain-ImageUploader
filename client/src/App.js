@@ -132,7 +132,7 @@ function App() {
               <li>Network Name: Localhost 8545 hoặc Custom Host</li>
               <li>New RPC URL: http://127.0.0.1:8545 hoặc {" "}
                 <strong>
-                  https://legendary-engine-j4xq79vp5x93wg9-8545.app.github.dev/
+                  https://hardhat.thaihophugia.id.vn/
                 </strong>
               </li>
               <li>Chain ID: 1337</li>
