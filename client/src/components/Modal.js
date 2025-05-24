@@ -3,14 +3,22 @@ import "./Modal.css";
 
 const Modal = ({ setModalOpen, contract }) => {
   const sharing = async () => {
-    const address = document.querySelector(".address").value;
+    const address = document.querySelector(".address").value.trim();
+    if (!address) {
+      alert("Vui lòng nhập địa chỉ ví cần chia sẻ!");
+      return;
+    }
     await contract.allow(address);
     setModalOpen(false);
   };
 
   const disallow = async () => {
-    const address = document.querySelector(".address").value;
-    await contract.disallow(address); // Gọi hàm disallow từ smart contract
+    const address = document.querySelector(".address").value.trim();
+    if (!address) {
+      alert("Vui lòng nhập địa chỉ ví cần hủy chia sẻ!");
+      return;
+    }
+    await contract.disallow(address);
     alert(`Đã hủy chia sẻ với địa chỉ: ${address}`);
   };
 
